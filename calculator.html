@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор календаря</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function calculateDate() {
+            const startDate = document.getElementById('start-date').value;
+            const daysToAdd = parseInt(document.getElementById('days-to-add').value);
+            if (startDate && !isNaN(daysToAdd)) {
+                const date = new Date(startDate);
+                date.setDate(date.getDate() + daysToAdd);
+                document.getElementById('result').textContent = `Результат: ${date.toDateString()}`;
+            } else {
+                document.getElementById('result').textContent = 'Будь ласка, введіть коректну дату і кількість днів.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Калькулятор календаря</h1>
+    </header>
+    <main>
+        <div class="frame">
+            <h2>Введіть дані для розрахунку</h2>
+            <label for="start-date">Початкова дата:</label>
+            <input type="date" id="start-date" name="start-date">
+            <br>
+            <label for="days-to-add">Кількість днів:</label>
+            <input type="number" id="days-to-add" name="days-to-add">
+            <br>
+            <button class="button" onclick="calculateDate()">Розрахувати</button>
+            <p id="result"></p>
+        </div>
+        <a href="index.html" class="menu-button">В головне меню</a>
+    </main>
+</body>
+</html>
+
